@@ -21,7 +21,6 @@ def process(stem, alphabet):
 #
 # Additional testing added to ensure that changes don't affect the result
 #
-import pytest
 from itertools import permutations
 from timeit import timeit
 
@@ -41,7 +40,7 @@ def test_nine_elements():
     assert {tuple(x) for x in process([], set(range(9)))} == {x for x in permutations(range(9))}
 
 if __name__ == '__main__':
-    t1 = timeit("{tuple(x) for x in process([], set(range(5)))}", "from __main__ import process", number=100)
-    t2 = timeit("{x for x in permutations(range(5))}", "from __main__ import process, permutations", number=100)
+    t1 = timeit("{tuple(x) for x in process([], set(range(7)))}", "from __main__ import process", number=100)
+    t2 = timeit("{x for x in permutations(range(7))}", "from __main__ import process, permutations", number=100)
 
     print(f"process: {t1:.5f} permutations: {t2:.5f} faster by: {t1/t2:.1f} times")
